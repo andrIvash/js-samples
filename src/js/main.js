@@ -1,1 +1,1 @@
-import './tasks/slider/slider';
+import './app/slider/slider/asdasda';
