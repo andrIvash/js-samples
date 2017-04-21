@@ -6,6 +6,7 @@ config = {
   entry: {
     app: ['./js/main.js']
   },
+  devtool: 'source-map',
   output: {
     filename: 'assets/js/[name].bundle.js',
     path: __dirname + "/app"

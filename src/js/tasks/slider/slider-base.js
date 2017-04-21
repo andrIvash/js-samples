@@ -14,13 +14,10 @@
  * Базовый класс слайдера
  * @constructor
  */
-export function SliderBase () {
-  this._getData();
-}
+export function SliderBase () {}
 
 /** @type {?SlideData} */
 SliderBase.prototype.data = null;
-/** @type {Node=} */
 
 SliderBase.prototype.show = function() {};
 SliderBase.prototype.remove = function() {};
@@ -28,29 +25,25 @@ SliderBase.prototype.remove = function() {};
 /**
  * Получение данных
  */
-  SliderBase.prototype._getData = function() {
-    console.log('get data');
-    SliderBase.prototype.data = [
-      {
-        title: 'one',
-        img: ['one.jpg'],
-        desc: 'one slide',
-        skills: ['one']
-      },
-      {
-        title: 'two',
-        img: ['two.jpg'],
-        desc: 'two slide',
-        skills: ['two']
-      },
-      {
-        title: 'three',
-        img: ['three.jpg'],
-        desc: 'three slide',
-        skills: ['three']
+ SliderBase.prototype.getData = function(url) {
+  return new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('GET', url);
+    req.onload = function() {
+      if (req.status == 200) {
+        SliderBase.prototype.data = JSON.parse(req.response).data;
+        resolve('Success!');
       }
-    ];
-  };
+      else {
+        reject(Error(req.statusText));
+      }
+    };
+    req.onerror = function() {
+      reject(Error('Network Error'));
+    };
+    req.send();
+  });
+};
 
 /**
  * Создание слайдера из шаблона

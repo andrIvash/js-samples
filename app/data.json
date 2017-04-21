@@ -1,0 +1,21 @@
+{ "data" : [
+    {
+        "title": "one",
+        "img": ["one.jpg"],
+        "desc": "one slide",
+        "skills": ["one"]
+    },
+    {
+        "title": "two",
+        "img": ["http://rcysl.com/wp-content/uploads/2017/01/Sky-Pictures-Photo-Collection.jpg"],
+        "desc": "two slide",
+        "skills": ["two"]
+    },
+    {
+        "title": "three",
+        "img": ["three.jpg"],
+        "desc": "three slide",
+        "skills": ["three"]
+    }
+  ]
+}

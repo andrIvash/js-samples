@@ -1,9 +1,11 @@
 /**
  * Класс галерея
  */
+import {SliderBase} from './slider-base';
 
 /**
 * @constructor
+* @extends {SliderBase}
 */
 export function Gallery () {
   /**
@@ -35,7 +37,7 @@ Gallery.prototype.show = function() {
 /**
 * удаляем галерею
 */
-Gallery.prototype.hide = function() {
+Gallery.prototype.remove = function() {
   this.element.classList.add('hidden');
   this._closeButton.removeEventListener('click', this._onCloseClick);
 };
